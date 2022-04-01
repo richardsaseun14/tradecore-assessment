@@ -25,7 +25,6 @@ export const Wizard = ({ style }) => {
 						<button
 							onClick={() => {
 								setAdd(true);
-								next();
 							}}
 						>
 							Add new
@@ -33,10 +32,10 @@ export const Wizard = ({ style }) => {
 					</>
 				);
 			case currentStep === 3:
-				return <p>Add New Subgenre</p>;
+				return <p>Add New Subgenre - conditional</p>;
 			case currentStep === 4:
 				return <p>Book Information</p>;
-			case currentStep === -1:
+			case currentStep === 5:
 				return <p>Success</p>;
 			default:
 				console.log("wizard form");
@@ -48,12 +47,18 @@ export const Wizard = ({ style }) => {
 	const prev = () => {
 		if (currentStep > 1) {
 			setCurrentStep((prev) => prev - 1);
+			if (currentStep === 4 && !add) {
+				setCurrentStep(2);
+			}
 		}
 	};
 
 	const next = () => {
 		if (currentStep < 5) {
 			setCurrentStep((prev) => prev + 1);
+			if (currentStep === 2 && !add) {
+				setCurrentStep(4);
+			}
 		}
 	};
 	return (

@@ -19,7 +19,7 @@ const WizardHeader = ({ currentStep, totalSteps }) => {
 				<WizardHeaderItem step="2" title="Subgenre" />
 			</li>
 			<li>
-				<WizardHeaderItem step="3" title="Subgenre" />
+				<WizardHeaderItem step="3" title="Add Subgenre" />
 			</li>
 			<li>
 				<WizardHeaderItem step="4" title="Information" />
