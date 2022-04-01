@@ -1,0 +1,13 @@
+.WizardHeader {
+	margin: 0 0 48px 0;
+	position: relative;
+	&:after {
+		content: "";
+		width: 98%;
+		border-bottom: 2px solid gray;
+		position: absolute;
+		left: 0%;
+		top: 39.6%;
+		z-index: -2;
+	}
+}
