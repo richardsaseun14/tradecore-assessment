@@ -13,10 +13,14 @@ const WizardHeader = ({ currentStep, isAdd }) => {
 	return (
 		<ul className={classes}>
 			<li>
-				<WizardHeaderItem step="1" title="Genre" />
+				<WizardHeaderItem step="1" title="Genre" active={currentStep === 1} />
 			</li>
 			<li>
-				<WizardHeaderItem step="2" title="Subgenre" />
+				<WizardHeaderItem
+					step="2"
+					title="Subgenre"
+					active={currentStep === 2}
+				/>
 			</li>
 			{currentStep < 3 ? (
 				<li>
@@ -25,15 +29,27 @@ const WizardHeader = ({ currentStep, isAdd }) => {
 			) : isAdd ? (
 				<>
 					<li>
-						<WizardHeaderItem step="3" title="Add Subgenre" />
+						<WizardHeaderItem
+							step="3"
+							title="Add Subgenre"
+							active={currentStep === 3}
+						/>
 					</li>
 					<li>
-						<WizardHeaderItem step="4" title="Information" />
+						<WizardHeaderItem
+							step="4"
+							title="Information"
+							active={currentStep === 4}
+						/>
 					</li>
 				</>
 			) : (
 				<li>
-					<WizardHeaderItem step="3" title="Information" />
+					<WizardHeaderItem
+						step="3"
+						title="Information"
+						active={currentStep === 4}
+					/>
 				</li>
 			)}
 		</ul>
