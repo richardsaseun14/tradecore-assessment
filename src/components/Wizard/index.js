@@ -1,38 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Wizard.module.scss";
 import WizardFooter from "./WizardFooter";
 import WizardHeader from "./WizardHeader";
-
-// const step1 = () => {
-// 	return { title: "Genre", content: <p>Step 1</p> };
-// };
-// const step2 = () => {
-// 	return { title: "Subgenre", content: <p>Step 1</p> };
-// };
+import { useWizard } from "../../context/WizardContext";
+import StepGenre from "../Steps/StepGenre";
+import StepSubgenre from "../Steps/StepSubgenre";
+import StepCreateSub from "../Steps/StepCreateSub";
 
 export const Wizard = ({ style }) => {
-	const [currentStep, setCurrentStep] = useState(1);
-	const [add, setAdd] = useState(false);
+	const { add, setAdd, currentStep, setCurrentStep, setSubgenre } = useWizard();
 
-	const renderStep = (values) => {
+	const renderStep = () => {
 		switch (true) {
 			case currentStep === 1:
-				return <p>Genre</p>;
+				return <StepGenre></StepGenre>;
 			case currentStep === 2:
-				return (
-					<>
-						<p>SubGenre</p>
-						<button
-							onClick={() => {
-								setAdd(true);
-							}}
-						>
-							Add new
-						</button>
-					</>
-				);
+				return <StepSubgenre />;
 			case currentStep === 3:
-				return <p>Add New Subgenre - conditional</p>;
+				return <StepCreateSub />;
 			case currentStep === 4:
 				return <p>Book Information</p>;
 			case currentStep === 5:
@@ -42,14 +27,25 @@ export const Wizard = ({ style }) => {
 		}
 	};
 
-	// const steps = [step1.content, step2.content];
-	// const Content = steps[currentStep];
 	const prev = () => {
 		if (currentStep > 1) {
 			setCurrentStep((prev) => prev - 1);
 			if (currentStep === 4 && !add) {
 				setCurrentStep(2);
 			}
+		}
+
+		// if (currentStep === 2) {
+
+		// 	setAdd(false);
+		// }
+		if (currentStep === 3) {
+			setAdd(false);
+			setSubgenre({
+				name: "",
+				id: null,
+				isDescriptionRequired: false,
+			});
 		}
 	};
 
@@ -64,7 +60,7 @@ export const Wizard = ({ style }) => {
 	return (
 		<div className={styles.Wizard} style={style}>
 			<p className="mb-16">Add Book - New Book</p>
-			<WizardHeader />
+			<WizardHeader currentStep={currentStep} isAdd={add} />
 			{renderStep()}
 			<WizardFooter prev={prev} next={next} />
 		</div>

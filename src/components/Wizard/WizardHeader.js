@@ -3,7 +3,7 @@ import WizardHeaderItem from "./WizardHeaderItem";
 import styles from "./WizardHeader.module.scss";
 import classNames from "classnames";
 
-const WizardHeader = ({ currentStep, totalSteps }) => {
+const WizardHeader = ({ currentStep, isAdd }) => {
 	const classes = classNames(
 		styles.WizardHeader,
 		"d-flex",
@@ -18,12 +18,24 @@ const WizardHeader = ({ currentStep, totalSteps }) => {
 			<li>
 				<WizardHeaderItem step="2" title="Subgenre" />
 			</li>
-			<li>
-				<WizardHeaderItem step="3" title="Add Subgenre" />
-			</li>
-			<li>
-				<WizardHeaderItem step="4" title="Information" />
-			</li>
+			{currentStep < 3 ? (
+				<li>
+					<WizardHeaderItem step="..." title="" />
+				</li>
+			) : isAdd ? (
+				<>
+					<li>
+						<WizardHeaderItem step="3" title="Add Subgenre" />
+					</li>
+					<li>
+						<WizardHeaderItem step="4" title="Information" />
+					</li>
+				</>
+			) : (
+				<li>
+					<WizardHeaderItem step="3" title="Information" />
+				</li>
+			)}
 		</ul>
 	);
 };

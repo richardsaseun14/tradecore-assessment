@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { WizardProvider } from "./context/WizardContext.js";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<WizardProvider>
+			<App />
+		</WizardProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
