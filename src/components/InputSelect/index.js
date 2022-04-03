@@ -1,19 +1,20 @@
 import classNames from "classnames";
 import React from "react";
-import styles from "./Input.module.scss";
+import styles from "./InputSelect.module.scss";
 
-const Input = ({
+const InputSelect = ({
 	value,
 	onChange,
 	className,
+	name,
 	placeholder,
 	label,
 	type,
-	required,
+	items,
 }) => {
 	const classes = classNames(
 		className,
-		styles.Input,
+		styles.InputSelect,
 		"reset-sizing",
 		"mb-16"
 		// outlined ? styles.ButtonOutline : styles.ButtonSolid
@@ -28,16 +29,22 @@ const Input = ({
 			) : (
 				""
 			)}
-			<input
+			<select
 				className={classes}
+				name={name}
+				id={name}
 				value={value}
-				required={required}
 				onChange={onChange}
-				placeholder={placeholder}
-				type={type}
-			></input>
+			>
+				<option value="">{label}</option>
+				{items.map((el, index) => (
+					<option key={index} value={el}>
+						{el}
+					</option>
+				))}
+			</select>
 		</div>
 	);
 };
 
-export default Input;
+export default InputSelect;

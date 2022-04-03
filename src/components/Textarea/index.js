@@ -1,25 +1,17 @@
 import classNames from "classnames";
 import React from "react";
-import styles from "./Input.module.scss";
+import styles from "./Textarea.module.scss";
 
-const Input = ({
-	value,
-	onChange,
-	className,
-	placeholder,
-	label,
-	type,
-	required,
-}) => {
+const Textarea = ({ value, onChange, className, placeholder, label }) => {
 	const classes = classNames(
 		className,
-		styles.Input,
+		styles.Textarea,
 		"reset-sizing",
 		"mb-16"
 		// outlined ? styles.ButtonOutline : styles.ButtonSolid
 	);
 	return (
-		<div>
+		<>
 			{label ? (
 				<>
 					<label className="">{label}</label>
@@ -28,16 +20,16 @@ const Input = ({
 			) : (
 				""
 			)}
-			<input
+			<textarea
+				rows="4"
+				cols="50"
 				className={classes}
 				value={value}
-				required={required}
 				onChange={onChange}
 				placeholder={placeholder}
-				type={type}
-			></input>
-		</div>
+			></textarea>
+		</>
 	);
 };
 
-export default Input;
+export default Textarea;

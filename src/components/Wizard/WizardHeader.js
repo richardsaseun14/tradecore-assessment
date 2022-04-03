@@ -10,12 +10,12 @@ const WizardHeader = ({ currentStep, isAdd }) => {
 		"align-item-center",
 		"justify-content-between"
 	);
-	return (
+	return currentStep === 5 ? null : (
 		<ul className={classes}>
-			<li>
+			<li className="d-flex flex-column align-items-center">
 				<WizardHeaderItem step="1" title="Genre" active={currentStep === 1} />
 			</li>
-			<li>
+			<li className="d-flex flex-column align-items-center">
 				<WizardHeaderItem
 					step="2"
 					title="Subgenre"
@@ -23,19 +23,19 @@ const WizardHeader = ({ currentStep, isAdd }) => {
 				/>
 			</li>
 			{currentStep < 3 ? (
-				<li>
+				<li className="d-flex flex-column align-items-center">
 					<WizardHeaderItem step="..." title="" />
 				</li>
 			) : isAdd ? (
 				<>
-					<li>
+					<li className="d-flex flex-column align-items-center">
 						<WizardHeaderItem
 							step="3"
-							title="Add Subgenre"
+							title="Add New Subgenre"
 							active={currentStep === 3}
 						/>
 					</li>
-					<li>
+					<li className="d-flex flex-column align-items-center">
 						<WizardHeaderItem
 							step="4"
 							title="Information"
@@ -44,7 +44,7 @@ const WizardHeader = ({ currentStep, isAdd }) => {
 					</li>
 				</>
 			) : (
-				<li>
+				<li className="d-flex flex-column align-items-center">
 					<WizardHeaderItem
 						step="3"
 						title="Information"

@@ -6,6 +6,8 @@ import { useWizard } from "../../context/WizardContext";
 import StepGenre from "../Steps/StepGenre";
 import StepSubgenre from "../Steps/StepSubgenre";
 import StepCreateSub from "../Steps/StepCreateSub";
+import StepBook from "../Steps/StepBook";
+import Success from "../Steps/Success";
 
 export const Wizard = ({ style }) => {
 	const { add, setAdd, currentStep, setCurrentStep, setSubgenre } = useWizard();
@@ -19,9 +21,9 @@ export const Wizard = ({ style }) => {
 			case currentStep === 3:
 				return <StepCreateSub />;
 			case currentStep === 4:
-				return <p>Book Information</p>;
+				return <StepBook />;
 			case currentStep === 5:
-				return <p>Success</p>;
+				return <Success />;
 			default:
 				console.log("wizard form");
 		}
@@ -59,7 +61,7 @@ export const Wizard = ({ style }) => {
 	};
 	return (
 		<div className={styles.Wizard} style={style}>
-			<p className="mb-16">Add Book - New Book</p>
+			{currentStep === 5 ? null : <p className="mb-16">Add Book - New Book</p>}
 			<WizardHeader currentStep={currentStep} isAdd={add} />
 			{renderStep()}
 			<WizardFooter prev={prev} next={next} />

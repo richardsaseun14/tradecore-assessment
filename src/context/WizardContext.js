@@ -1,4 +1,16 @@
 import React, { createContext, useContext, useState } from "react";
+const BOOK = {
+	title: "",
+	author: "",
+	isbn: "",
+	publisher: "",
+	datePublished: "",
+	pagesNumber: "",
+	format: "",
+	edition: "",
+	language: "",
+	desc: "",
+};
 
 const WizardContext = createContext();
 
@@ -16,18 +28,15 @@ export const WizardProvider = ({ children }) => {
 		id: null,
 		isDescriptionRequired: false,
 	});
-	const [book, setBook] = useState({
-		title: "",
-		author: "",
-		isbn: "",
-		publisher: "",
-		datePublished: "",
-		pagesNumber: "",
-		format: "",
-		edition: "",
-		language: "",
-		desc: "",
-	});
+	const [book, setBook] = useState(BOOK);
+	const resetWizard = () => {
+		setCurrentStep(1);
+		setAdd(false);
+		setGenre({});
+		setSubgenre({ name: "", id: null, isDescriptionRequired: false });
+		setBook(BOOK);
+	};
+
 	return (
 		<WizardContext.Provider
 			value={{
@@ -41,6 +50,7 @@ export const WizardProvider = ({ children }) => {
 				setSubgenre,
 				book,
 				setBook,
+				resetWizard,
 			}}
 		>
 			{children}

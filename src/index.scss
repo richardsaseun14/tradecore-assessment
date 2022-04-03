@@ -169,6 +169,10 @@ table {
 	flex-direction: row !important;
 }
 
+.flex-column {
+	flex-direction: column !important;
+}
+
 .small {
 	font-size: 14px;
 }
@@ -179,6 +183,10 @@ table {
 
 .justify-content-between {
 	justify-content: space-between !important;
+}
+
+.justify-content-center {
+	justify-content: center !important;
 }
 
 .justify-content-end {
@@ -214,7 +222,7 @@ table {
 }
 
 .my-6 {
-	margin: 0 6px;
+	margin: 6px;
 }
 
 .text-primary {

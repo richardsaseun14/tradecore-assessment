@@ -1,6 +1,15 @@
 .StepGenre {
-	// display: grid;
-	// grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.Success {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 40px;
+}
+
+.Success div {
+	margin-bottom: 40px;
 }
