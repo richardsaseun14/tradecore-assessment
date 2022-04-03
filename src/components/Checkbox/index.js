@@ -3,11 +3,7 @@ import React from "react";
 import styles from "./Checkbox.module.scss";
 
 const Checkbox = ({ label, value, onChange, className }) => {
-	const classes = classNames(
-		className,
-		styles.Label
-		// outlined ? styles.ButtonOutline : styles.ButtonSolid
-	);
+	const classes = classNames(className, styles.Label);
 	return (
 		<label className={classes}>
 			<input

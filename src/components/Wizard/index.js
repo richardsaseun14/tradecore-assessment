@@ -25,22 +25,15 @@ export const Wizard = ({ style }) => {
 			case currentStep === 5:
 				return <Success />;
 			default:
-				console.log("wizard form");
+				console.log("this is the wizard form");
 		}
 	};
 
 	const prev = () => {
 		if (currentStep > 1) {
 			setCurrentStep((prev) => prev - 1);
-			if (currentStep === 4 && !add) {
-				setCurrentStep(2);
-			}
+			if (currentStep === 4 && !add) setCurrentStep(2);
 		}
-
-		// if (currentStep === 2) {
-
-		// 	setAdd(false);
-		// }
 		if (currentStep === 3) {
 			setAdd(false);
 			setSubgenre({
@@ -54,9 +47,7 @@ export const Wizard = ({ style }) => {
 	const next = () => {
 		if (currentStep < 5) {
 			setCurrentStep((prev) => prev + 1);
-			if (currentStep === 2 && !add) {
-				setCurrentStep(4);
-			}
+			if (currentStep === 2 && !add) setCurrentStep(4);
 		}
 	};
 	return (

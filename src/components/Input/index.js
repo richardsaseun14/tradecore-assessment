@@ -11,13 +11,7 @@ const Input = ({
 	type,
 	required,
 }) => {
-	const classes = classNames(
-		className,
-		styles.Input,
-		"reset-sizing",
-		"mb-16"
-		// outlined ? styles.ButtonOutline : styles.ButtonSolid
-	);
+	const classes = classNames(className, styles.Input, "reset-sizing", "mb-16");
 	return (
 		<div>
 			{label ? (

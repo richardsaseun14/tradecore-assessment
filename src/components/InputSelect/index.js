@@ -17,7 +17,6 @@ const InputSelect = ({
 		styles.InputSelect,
 		"reset-sizing",
 		"mb-16"
-		// outlined ? styles.ButtonOutline : styles.ButtonSolid
 	);
 	return (
 		<div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useWizard } from "../../context/WizardContext";
 import { mockData } from "../../utils/mockData";
 import ItemSelect from "../ItemSelect";

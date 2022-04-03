@@ -123,7 +123,7 @@ const StepBook = () => {
 						onChange={(e) => setBook({ ...book, language: e.target.value })}
 					></InputSelect>
 				</div>
-				{/* conditional description */}
+				{/* description is conditional */}
 				{subgenre.isDescriptionRequired ? (
 					<div>
 						<Textarea

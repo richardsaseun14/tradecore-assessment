@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useWizard } from "../../context/WizardContext";
 import Checkbox from "../Checkbox";
 import Input from "../Input";
 
 const StepCreateSub = () => {
-	const { genre, subgenre, setSubgenre, add, setAdd } = useWizard();
+	const { subgenre, setSubgenre } = useWizard();
 
 	// const [isDescriptionRequired, setIsDescriptionRequired] = useState(false);
 	// const [name, setName] = useState("");

@@ -8,7 +8,6 @@ const Textarea = ({ value, onChange, className, placeholder, label }) => {
 		styles.Textarea,
 		"reset-sizing",
 		"mb-16"
-		// outlined ? styles.ButtonOutline : styles.ButtonSolid
 	);
 	return (
 		<>
